@@ -34,3 +34,15 @@ Windows AIK – разработанный Microsoft пакет инструме
     
     Запускаем командную строку средств развертывания с администраторскими привилегиями.
     https://github.com/KISScyberdeveloper/SystemAdministrator/blob/master/%D0%A4%D0%BE%D1%82%D0%BE-4-16.jpg
+    
+    
+    Прописываем «copype.cmd x86 d:\winpe» для 32-хбитной ОС или «copype.cmd amd64 d:\winpe» для х64.
+    После этого в корне диска d: появится каталог «WinPE».
+    Выполняем команду:
+    imagex  /mountrw winpe.wim 1 mount
+    
+    В каталоге d:\winpe появится привычная структура папок операционной системы (ProgramFiles, Windows, Users).
+    Из каталога e:\winpe\mount\Windows\Boot\PXE\ копируем файлы bootmgr.exe, pxeboot.n12 в e:\win7\ .
+    
+    В e:\winpe\mount\Windows\System32\ находим файл startnet.cmd .
+

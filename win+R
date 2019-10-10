@@ -1,0 +1,176 @@
+http://pyatilistnik.org/spisok-prilozheniy-windows-zapuskaemyih-cherez-pusk-vyipolnit/
+Список приложений Windows, запускаемых через Пуск-Выполнить
+http://pyatilistnik.org/otkryivaem-msc-windows-osnastki-cherez-komandnuyu-stroku/
+Открываем msc windows оснастки через командную строку
+
+***
+Всегда можно создать свою оснастку консоли: http://pyatilistnik.org/mmc-ili-mega-moshhnaya-konsol/
+win+r -> mmc -> добавить оснастку; добавляем все, что нужно.
+
+***
+
+msinfo32 - системная информация
+
+compmgmt.msc - в приложении «Управление компьютером» вы можете получить доступ практически ко всем расширенным модулям Windows,
+  таким как "Просмотр событий", "Общая папка", "Системные инструменты"
+  
+
+    appwiz.cpl - Установка и удаление программ
+    certmgr.msc - Сертификаты
+    ciаdv.msc - Служба индексирования
+    cliconfg - Программа сетевого клиента SQL
+    clipbrd - Буфер обмена
+    compmgmt.msc - Управление компьютером
+    dcomcnfg - Консоль управления DCOM компонентами
+    ddeshare - Общие ресурсы DDE (на Win7 не работает)
+    desk.cpl - Свойства экрана
+    devmgmt.msc — Диспетчер устройств
+    dfrg.msc - Дефрагментация дисков
+    diskmgmt.msc - Управление дисками
+    drwtsn32 - Dr.Watson
+    dxdiag - Служба диагностики DirectX
+    eudcedit - Редактор личных символов
+    eventvwr.msc - Просмотр событий
+    firewall.cpl - настройки файерволла Windows
+    gpedit.msc - Груповая политика
+    fsmgmt.msc - Общие папки
+    fsquirt - Мастер передачи файлов Bluetooth
+    chkdsk - Проверка дисков (обычно запускается с параметрами буква_диска: /f /x /r)
+    control printers - Принтеры и факсы - запускается не всегда
+    control admintools - Администрирование компьютера - запускается не всегда
+    control schedtasks - Назначенные задания (планировщик)
+    control userpasswords2 - Управление учётными записями
+    compmgmt.msc - Управление компьютером (compmgmt.msc /computer=pc - удаленное управление компьютером pc)
+    lusrmgr.msc - Локальные пользователи и группы
+    mmc— создание своей оснастки
+    mrt.exe - Удаление вредоносных программ
+    msconfig - Настройка системы (автозапуск, службы)
+    mstsc - Подключение к удаленному рабочему столу
+    ncpa.cpl - Сетевые подключения
+
+    ntmsmgr.msc - Съёмные ЗУ
+    mmsys.cpl - Звук
+    ntmsoprq.msc - Запросы операторов съёмных ОЗУ (для XP)
+    odbccp32.cpl - Администратор источников данных
+    perfmon.msc - Производительность
+    regedit - Редактор реестра
+    rsop.msc - Результатирующая политика
+    secpol.msc - Локальные параметры безопасности (Локальная политика безопасности)
+    services.msc - Службы
+    sfc /scannow - Восстановление системных файлов
+    sigverif - Проверка подписи файла
+    sndvol — управление громкостью
+    sysdm.cpl - Свойства системы
+    syskey - Защита БД учётных записей
+    taskmgr - Диспетчер задач
+    utilman Диспетчер служебных программ
+    verifier Диспетчер проверки драйверов
+    wmimgmt.msc - Инфраструктура управления WMI
+Список msc оснасток для Windows Server
+
+Давайте рассмотрим как запускаются Административные оснастки Windows из командной строки cmd.exe
+
+    domain.msc - Active Directory домены и доверие
+    dsa.msc - Active Directory Пользователи и компьютеры (AD Users and Computers)
+    tsadmin.msc - Диспетчер служб терминалов (Terminal Services Manager)
+    gpmc.msc - Консоль управления GPO (Group Policy Management Console)
+    gpedit.msc - Редактор объектов локальной политики (Group Policy Object Editor)
+    tscc.msc - Настройка терминального сервера (TS Configuration)
+    rrasmgmt.msc - Маршрутизация и удаленый доступ (Routing and Remote Access)
+    dssite.msc - Active Directory Сайты и Доверие (AD Sites and Trusts)
+    dompol.msc - Политика безопасности домена (Domain Security Settings)
+    dсpol.msc - Политика безопасности контроллера домена (DC Security Settings)
+    dfsgui.msc - Распределенная файловая система DFS (Distributed File System)
+    dnsmgmt.msc - DNS
+    iscsicpl.exe - Инициатор ISCSI
+    odbcad32.exe - Администратор источника данных ODBC 32 бита
+    odbcad64.exe - Администратор источника данных ODBC 64 бита
+    powershell.exe -noexit -command import-module ActiveDirectory - Модуль powershell Active Directory
+    dfrgui.exe - Оптимизация дисков
+    taskschd.msc /s - Планировщик заданий
+    dsac.exe - Центр администрирования Active Directory
+    printmanagement.msc - Управление печатью
+    vmw.exe - Средство активации корпоративных лицензий
+    eventvwr.msc /s - Просмотр событий
+    adsiedit.msc - Редактор ADSIedit
+    wbadmin.msc - Система архивации данных Windows Server
+    ServerManager.exe - Диспетчер серверов
+nbtstat -a pc — имя пользователя работающего за удаленной машиной pc
+net localgroup group user /add — Добавить в группу group, пользователя user
+net localgroup group user /delete — Удалить пользователя из группы
+net send pc ''текст '' - отправить сообщение пользователю компьютера pc
+net sessions — список пользователей
+net session /delete - закрывает все сетевые сессии
+net use l: \\имя компа\папка\ - подключить сетевым диском l: папку на удаленном компьютере
+net user имя /active:no - заблокировать пользователя
+net user имя /active:yes - разблокировать пользователя
+net user имя /domain - информация о пользователе домена
+net user Имя /add — добавить пользователя
+net user Имя /delete — удалить пользователя
+netstat -a - список всех подключений к компьютеру
+reg add — Добавить параметр в реестр
+reg compare — Сравнивать части реестра.
+reg copy — Копирует из одного раздела в другой
+reg delete — Удаляет указанный параметр или раздел
+reg export — Экспортировать часть реестра
+reg import — Соответственно импортировать часть реестра
+reg load — Загружает выбранную часть реестра
+reg query — Выводит значения заданной ветки реестра
+reg restore — Восстанавливает выбранную часть реестра из файла
+reg save — Сохраняет выбранную часть реестра
+reg unload — Выгружает выбранную часть реестра
+shutdown — выключение компьютера , можно удаленно выключить другой.
+SystemInfo /s machine - покажет много полезного об удаленной машине
+Списка команд элементов Панели управления Windows
+
+    control /name Microsoft.AutoPlay - Автозапуск
+    control /name Microsoft.OfflineFiles - Автономные файлы
+    control /name Microsoft.AdministrativeTools - Администрирование
+    control /name Microsoft.BackupAndRestore - Архивация и восстановление
+    control /name Microsoft.WindowsFirewall - Брандмауэр Windows Windows
+    control /name Microsoft.Recovery - Восстановление
+    control /name Microsoft.DesktopGadgets - Гаджеты рабочего стола
+     control /name Microsoft.DateAndTime - Дата и Время
+    control /name Microsoft.DeviceManager - Диспетчер устройств
+    control /name Microsoft.CredentialManager - Диспетчер учетных данных
+    control /name Microsoft.HomeGroup - Домашняя группа
+    Windowscontrol /name Microsoft.WindowsDefender - Защитник Windows
+    control /name Microsoft.Sound - Звук
+    control /name Microsoft.NotificationAreaIcons - Значки области уведомлений
+    control /name Microsoft.GameControllers - Игровые устройства
+    Keyboardcontrol /name Microsoft.Keyboard - Клавиатура
+    control /name Microsoft.Mouse - Мышь
+    control /name Microsoft.TaskbarAndStartMenu - Панель задач и меню «Пуск»
+    control - Панель управления
+    control /name Microsoft.Fonts - Папка «Fonts»
+    control /name Microsoft.IndexingOptions - Параметры индексирования
+    control /name Microsoft.FolderOptions - Параметры папок
+    control /name Microsoft.PenAndTouch - Перо и сенсорные устройства
+    control /name Microsoft.Personalization - Персонализация
+    control /name Microsoft.RemoteAppAndDesktopConnections - Подключения к удаленным рабочим столам
+    control /name Microsoft.GetPrograms - Получение программ
+    control /name Microsoft.GettingStarted - Приступая к работе
+    control /name Microsoft.ProgramsAndFeatures -  Программы и компоненты
+    сontrol /name Microsoft.DefaultPrograms - Программы по умолчанию
+    control /name Microsoft.SpeechRecognition - Распознавание речи
+    control /name Microsoft.ParentalControls - Родительский контроль
+    control /name Microsoft.InternetOptions - Свойства обозревателя
+    control /name Microsoft.TextToSpeech - Свойства речи
+    control /name Microsoft.System - Система
+    control /name Microsoft.ScannersAndCameras - Сканеры и камеры
+    control /name Microsoft.PerformanceInformationAndTools - Счетчики и средства производительности
+    control /name Microsoft.PhoneAndModem - Телефон и модем
+    control /name Microsoft.ColorManagement -  Управление цветом
+    control /name Microsoft.Troubleshooting -  Устранение неполадок
+    control /name Microsoft.DevicesAndPrinters - Устройства и принтеры
+    control /name Microsoft.UserAccounts - Учетные записи пользователей
+    control /name Microsoft.MobilityCenter - Центр мобильности
+    control /name Microsoft.WindowsUpdate - Центр обновления
+    control /name Microsoft.ActionCenter - Центр поддержки
+    control /name Microsoft.SyncCenter - Центр синхронизации
+    control /name Microsoft.EaseOfAccessCenter - Центр специальных возможностей
+    control /name Microsoft.NetworkAndSharingCenter - Центр управления сетями и общим доступом
+    control /name Microsoft.BitLockerDriveEncryption - Шифрование диска
+    control /name Microsoft.Display - Экран
+    control /name Microsoft.PowerOptions - Электропитание
+    control /name Microsoft.RegionAndLanguage - Язык и региональные стандарты

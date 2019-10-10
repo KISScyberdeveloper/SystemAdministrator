@@ -42,7 +42,7 @@ compmgmt.msc - в приложении «Управление компьютер
     firewall.cpl - настройки файерволла Windows
     gpedit.msc - Груповая политика
     fsmgmt.msc - Общие папки
-    fsquirt - Мастер передачи файлов Bluetooth
+    fsquirt - Мастер передачи файлов Bluetooth (не запускается под Windows Server 2012 R2)
     chkdsk - Проверка дисков (обычно запускается с параметрами буква_диска: /f /x /r)
     control printers - Принтеры и факсы - запускается не всегда
     control admintools - Администрирование компьютера - запускается не всегда

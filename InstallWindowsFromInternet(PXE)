@@ -26,6 +26,7 @@ Windows AIK – разработанный Microsoft пакет инструме
 
     Монтируем образ Windows AIK, загруженный с сайта Microsoft, в виртуальный дисковод или распаковываем его при
     помощи архиватора в удобную директорию в корне диска.
+    Пакет автоматической установки Windows (AIK) для Windows 7 - http://www.microsoft.com/ru-RU/download/details.aspx?id=5753
     
     Запускаем файл «StartCD.exe», если автозапуск дисков отключен или не сработал.
     
@@ -45,4 +46,41 @@ Windows AIK – разработанный Microsoft пакет инструме
     Из каталога e:\winpe\mount\Windows\Boot\PXE\ копируем файлы bootmgr.exe, pxeboot.n12 в e:\win7\ .
     
     В e:\winpe\mount\Windows\System32\ находим файл startnet.cmd .
+    Изменяем файл «mount\windows\system32\startnet.cmd», внеся в него следующую информацию:
+    
+    wpeinit
+    net use e: \\192.168.0.1\win7 /user:install install
+    if exist z:\sources\setup.exe (
+    z:
+    cd \sources
+    setup.exe
+    )
+    
+    192.168.0.1 - нужно будет указать нашему компьютеру как серверу.
+    
+    Из папки e:\winpe\ISO\boot\ скопировать файл boot.sdi в папку e:\win7\boot\ .
+    Нужно сохранить результаты. Для этого в командной строке средств развертывания:
+    
+    e:\winpe>imagex /unmount /commit mount
+    Теперь в папке e:\winpe\mount пусто.
+    
+    Копируем файл e:\winpe\winpe.wim в e:\win7\boot\ .
+    
+    Создаем файл createbcd.cmd. Его содержимое:
+    bcdedit -createstore %1\BCD
+bcdedit -store %1\BCD -create {ramdiskoptions} /d "Ramdisk options"
+bcdedit -store %1\BCD -set {ramdiskoptions} ramdisksdidevice boot
+bcdedit -store %1\BCD -set {ramdiskoptions} ramdisksdipath \boot\boot.sdi
+for /F "tokens=2 delims={}" %%i in ('bcdedit -store %1\BCD -create /d "MyWinPE Boot Image" /application osloader') do set guid={%%i}
+bcdedit -store %1\BCD -set %guid% systemroot \Windows
+bcdedit -store %1\BCD -set %guid% detecthal Yes
+bcdedit -store %1\BCD -set %guid% winpe Yes
+bcdedit -store %1\BCD -set %guid% osdevice ramdisk=[boot]\Boot\winpe.wim,{ramdiskoptions}
+bcdedit -store %1\BCD -set %guid% device ramdisk=[boot]\Boot\winpe.wim,{ramdiskoptions}
+bcdedit -store %1\BCD -create {bootmgr} /d "Windows BootManager"
+bcdedit -store %1\BCD -set {bootmgr} timeout 30
+bcdedit -store %1\BCD -set {bootmgr} displayorder %guid%
+    
+
+    
 

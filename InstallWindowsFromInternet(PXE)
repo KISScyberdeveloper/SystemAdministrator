@@ -81,6 +81,11 @@ bcdedit -store %1\BCD -create {bootmgr} /d "Windows BootManager"
 bcdedit -store %1\BCD -set {bootmgr} timeout 30
 bcdedit -store %1\BCD -set {bootmgr} displayorder %guid%
     
+    В командной строке средств развертывания:
+    e:\winpe>createbcd.cmd e:\win7\boot
+
+    Создаем нового пользователя:
+    e:\winpe>net user install 1qaz@WSX /add
+    Команда выполнена успешно.
 
     
-
